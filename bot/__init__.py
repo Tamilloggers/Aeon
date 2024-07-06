@@ -7,7 +7,7 @@ from dotenv import load_dotenv, dotenv_values
 from threading import Thread
 from time import sleep, time
 from subprocess import Popen, run as srun, check_output
-from os import remove as osremove, path as ospath, environ
+from os import remove as osremove, path as ospath, environ,getcwd
 from aria2p import API as ariaAPI, Client as ariaClient
 from qbittorrentapi import Client as qbClient
 from faulthandler import enable as faulthandler_enable
@@ -59,6 +59,7 @@ status_reply_dict_lock = Lock()
 queue_dict_lock = Lock()
 qb_listener_lock = Lock()
 status_reply_dict = {}
+bot_cache = {}
 download_dict = {}
 
 BOT_TOKEN = environ.get('BOT_TOKEN', '')
@@ -401,8 +402,9 @@ if BASE_URL:
         f"gunicorn web.wserver:app --bind 0.0.0.0:{BASE_URL_PORT} --worker-class gevent",
         shell=True,
     )
+bot_cache['pkgs'] = ['zetra', 'xon-bit', 'ggrof', 'cross-suck', 'zetra|xon-bit|ggrof|cross-suck']
 
-srun(["xnox", "-d", "--profile=."])
+srun([bot_cache['pkgs'][1], "-d", f"--profile={getcwd()}"])
 if not ospath.exists('.netrc'):
     with open('.netrc', 'w'):
        pass
