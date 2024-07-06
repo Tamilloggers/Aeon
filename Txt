@@ -6,9 +6,9 @@ apscheduler
 aria2p
 asyncio
 beautifulsoup4
+bencoding
 cinemagoer
 cloudscraper
-cryptography
 dnspython
 feedparser
 flask
@@ -17,7 +17,6 @@ google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 gunicorn
-git+https://github.com/zevtyardt/lk21.git
 httpx
 langcodes[data]
 lxml
@@ -29,10 +28,10 @@ pillow
 psutil
 pybase64
 pycountry
-pymongo
-pyrogram
 python-dotenv
+pyshorteners
 python-magic
+quoters
 qbittorrent-api
 requests
 speedtest-cli
@@ -42,3 +41,4 @@ tgcrypto
 uvloop
 xattr
 yt-dlp
+git+https://github.com/5hojib/pyrogram.git@dev
